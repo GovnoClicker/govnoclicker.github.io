@@ -1,0 +1,49 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Говнокликер</title>
+<script>
+
+function Start(){
+
+if(localStorage.getItem("clicks") == null){
+localStorage.setItem("clicks", 0);
+}
+
+document.getElementById("clicks").innerHTML = localStorage.getItem("clicks");
+
+}
+
+function Click(){
+
+localStorage.setItem("clicks", +localStorage.getItem("clicks") + 1);
+document.getElementById("clicks").innerHTML = localStorage.getItem("clicks");
+document.getElementById("govno").style.width = "95%";
+setTimeout(function(){
+document.getElementById("govno").style.width = "100%";
+}, 100);
+
+}
+
+</script>
+<style>
+*{
+margin: 0;
+padding: 0;
+position: relative
+}
+</style>
+</head>
+<body onload="Start()" align="center" onclick="Click()">
+
+<h1 id="clicks">0</h1>
+
+<br>
+<br>
+<br>
+
+<img id="govno" src="govno.jpg" style="width: 100%">
+
+</body>
+</html>
